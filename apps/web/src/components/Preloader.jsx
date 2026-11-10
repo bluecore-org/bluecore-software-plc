@@ -111,7 +111,8 @@ export default function Preloader() {
         />
 
         {/* Brand text */}
-        <h1
+        <div
+          role="img"
           className="relative z-10 mt-6 flex items-end justify-center text-7xl leading-none tracking-[-0.13em] sm:mt-8 sm:text-9xl md:text-[10rem] lg:text-[11rem]"
           style={{
             fontFamily: "'Lobster Two', cursive",
@@ -135,7 +136,7 @@ export default function Preloader() {
               {letter.char}
             </span>
           ))}
-        </h1>
+        </div>
 
         {/* Line */}
         <div
