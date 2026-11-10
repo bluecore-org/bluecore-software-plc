@@ -27,6 +27,7 @@ import { portfolio } from "./data/portfolio";
 import { portfolioImages } from "./data/portfolioImages";
 import { team } from "./data/team";
 import { blog } from "./data/blog";
+import { buildDescription, buildTitle } from "./lib/seoMeta";
 import {
   buildGraph,
   buildOrganization,
@@ -40,7 +41,7 @@ const siteUrl = "https://blue-core.tech";
 const routeMetadata = {
   "/": {
     title: "Bluecore Software PLC",
-    description: "Bluecore Software PLC designs and supports practical software, web applications, system integrations, AI solutions, and digitization services in Addis Ababa, Ethiopia.",
+    description: "Bluecore Software PLC designs and supports practical software, web apps, system integrations, AI solutions, and digitization in Addis Ababa, Ethiopia.",
   },
   "/privacy": {
     title: "Privacy Policy & Data Protection | Bluecore Software PLC",
@@ -82,7 +83,7 @@ function resolveRoute(path) {
       return {
         view: "service-detail",
         service,
-        metadata: { title: `${service.title} | Bluecore Software PLC`, description: service.overview?.[0] ?? service.text },
+        metadata: { title: buildTitle(service.title), description: buildDescription(service.overview?.[0] ?? service.text) },
       };
     }
   }
@@ -93,7 +94,7 @@ function resolveRoute(path) {
       return {
         view: "portfolio-detail",
         item,
-        metadata: { title: `${item.title} | Bluecore Software PLC`, description: item.overview?.[0] ?? item.text },
+        metadata: { title: buildTitle(item.title), description: buildDescription(item.overview?.[0] ?? item.text) },
       };
     }
   }
@@ -104,7 +105,7 @@ function resolveRoute(path) {
       return {
         view: "blog-post",
         post,
-        metadata: { title: `${post.title} | Bluecore Software PLC`, description: post.description },
+        metadata: { title: buildTitle(post.seoTitle ?? post.title), description: buildDescription(post.description) },
       };
     }
   }

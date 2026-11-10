@@ -2,6 +2,7 @@ export const blog = [
   {
     slug: "rag-grounding-and-reducing-ai-hallucinations",
     title: "RAG, Grounding, and Practical Tips for Stopping AI Hallucinations",
+    seoTitle: "RAG and Grounding: Stopping AI Hallucinations",
     description:
       "Why large language models invent plausible falsehoods, how Retrieval-Augmented Generation anchors answers in factual reality, and five concrete engineering practices to keep enterprise AI reliable.",
     date: "2026-10-16",
